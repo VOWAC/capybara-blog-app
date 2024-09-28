@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { supabase } from "../utils/supabase";
+import { supabase } from "../../../utils/supabase";
 
 const Page = () => {
   const [email, setEmail] = useState(""); // メールアドレスを管理
