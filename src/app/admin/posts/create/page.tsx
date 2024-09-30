@@ -4,11 +4,13 @@ import React, { useState } from 'react'
 const page = () => {
   const [title, setTitle] = useState('');
   const [content, setContent] = useState('');
+  const [isPublished, setIsPublished] = useState(false);
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     console.log(title)
     console.log(content)
+    console.log(isPublished)
     console.log('submit')
   }
 
@@ -35,7 +37,14 @@ const page = () => {
           required
         />
         {/* 公開設定 */}
-        <input type="checkbox" />
+        <label>
+          公開:
+          <input
+            type="checkbox"
+            checked={isPublished}
+            onChange={(e) => setIsPublished(e.target.checked)}
+          />
+        </label>
         {/* 送信ボタン */}
         <button type='submit'>送信</button>
       </form>
