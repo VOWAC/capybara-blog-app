@@ -3,10 +3,12 @@ import React, { useState } from 'react'
 
 const page = () => {
   const [title, setTitle] = useState('');
+  const [content, setContent] = useState('');
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     console.log(title)
+    console.log(content)
     console.log('submit')
   }
 
@@ -25,7 +27,13 @@ const page = () => {
         />
 
         {/* 本文の作成 */}
-        <textarea name="" id="" cols={30} rows={10}></textarea>
+        <label htmlFor="content">内容:</label>
+        <textarea
+          id="content"
+          value={content}
+          onChange={(e) => setContent(e.target.value)}
+          required
+        />
         {/* 公開設定 */}
         <input type="checkbox" />
         {/* 送信ボタン */}
