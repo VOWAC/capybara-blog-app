@@ -1,18 +1,27 @@
-'use client'
-import React, { useState } from 'react'
+"use client";
+import React, { useState } from "react";
+import { createPost } from "./action";
 
 const page = () => {
-  const [title, setTitle] = useState('');
-  const [content, setContent] = useState('');
+  const [title, setTitle] = useState("");
+  const [content, setContent] = useState("");
   const [isPublished, setIsPublished] = useState(false);
+  const [message, setMessage] = useState("");
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault()
-    console.log(title)
-    console.log(content)
-    console.log(isPublished)
-    console.log('submit')
-  }
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    // actions.tsに定義した関数を呼び出してデータ送信
+    const result = await createPost({ title, content, isPublished });
+
+    if (result.error) {
+      setMessage("記事の作成に失敗しました。");
+    } else {
+      setMessage("記事が正常に作成されました！");
+      setTitle("");
+      setContent("");
+      setIsPublished(false);
+    }
+  };
 
   return (
     <div>
@@ -46,10 +55,11 @@ const page = () => {
           />
         </label>
         {/* 送信ボタン */}
-        <button type='submit'>送信</button>
+        <button type="submit">送信</button>
       </form>
+      {message && <p>{message}</p>}
     </div>
-  )
-}
+  );
+};
 
-export default page
+export default page;
