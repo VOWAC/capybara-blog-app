@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import { createPost } from "./action";
 
-const page = () => {
+const CreatePage = () => {
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
   const [isPublished, setIsPublished] = useState(false);
@@ -62,4 +62,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default CreatePage;
