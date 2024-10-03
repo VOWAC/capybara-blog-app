@@ -4,12 +4,6 @@ import Link from "next/link";
 export default async function AdminPostsPage() {
   const supabase = createClient();
 
-  const { data: user, error: authError } = await supabase.auth.getUser();
-
-  if (authError || !user) {
-    return <p>ログインが必要です。</p>; // 認証されていない場合のメッセージ
-  }
-
   const { data: posts, error: postsError } = await supabase
     .from("posts")
     .select("*")
