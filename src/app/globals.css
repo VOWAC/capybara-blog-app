@@ -4,11 +4,20 @@
 
 :root {
   --background: linear-gradient(45deg, #F4F0F7 0%, #FBDFD8 100%);
-  --foreground: #78697F;
+
+  /* フォントサイズ */
   --font-size-xl: 24px;
   --font-size-lg: 20px;
   --font-size-md: 16px;
   --font-size-sm: 12px;
+  /* カラー */
+  --primary: #E3AAB2;
+  --secondary: #FBDFD8;
+  --accent: #ADA1C1;
+  --background-secondary: #ffffff;
+  --foreground: #78697F;
+  /* ドロップシャドウ */
+  --drop-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
 }
 /* 
 @media (prefers-color-scheme: dark) {
@@ -38,6 +47,10 @@ p {
 
 .small-text {
   font-size: var(--font-size-sm); /* 12px */
+}
+
+.shadow{
+  box-shadow: var(--drop-shadow);
 }
 
 @layer utilities {
