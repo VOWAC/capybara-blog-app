@@ -16,6 +16,9 @@ const geistMono = localFont({
 export const metadata: Metadata = {
   title: "カピバラブログ",
   description: "カピバラとは特に関係のないブログです",
+  icons: {
+    icon: '/favicon.ico'
+  }
 };
 
 export default function RootLayout({

@@ -3,21 +3,54 @@
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+  --background: linear-gradient(45deg, #F4F0F7 0%, #FBDFD8 100%);
 
+  /* フォントサイズ */
+  --font-size-xl: 24px;
+  --font-size-lg: 20px;
+  --font-size-md: 16px;
+  --font-size-sm: 12px;
+  /* カラー */
+  --primary: #E3AAB2;
+  --secondary: #FBDFD8;
+  --accent: #ADA1C1;
+  --background-secondary: #ffffff;
+  --foreground: #78697F;
+  /* ドロップシャドウ */
+  --drop-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+/* 
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
     --foreground: #ededed;
   }
-}
+} */
 
 body {
   color: var(--foreground);
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+h1 {
+  font-size: var(--font-size-xl); /* 24px */
+}
+
+h2 {
+  font-size: var(--font-size-lg); /* 20px */
+}
+
+p {
+  font-size: var(--font-size-md); /* 16px */
+}
+
+.small-text {
+  font-size: var(--font-size-sm); /* 12px */
+}
+
+.shadow{
+  box-shadow: var(--drop-shadow);
 }
 
 @layer utilities {
