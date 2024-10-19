@@ -1,3 +1,5 @@
+import Card from "@/app/components/Card";
+import Title from "@/app/components/Title";
 import { createClient } from "@/utils/supabase/server";
 import Link from "next/link";
 
@@ -15,22 +17,27 @@ export default async function AdminPostsPage() {
 
   return (
     <div>
-      <h1>記事一覧（管理者）</h1>
-      {posts.length === 0 ? (
-        <p>記事がありません。</p>
-      ) : (
-        <ul>
-          {posts.map((post) => (
-            <li key={post.id}>
-              <Link href={`/admin/posts/${post.id}`}>
-                <h2>{post.title}</h2>
-                <p>{post.is_published ? "公開" : "非公開"}</p>
-                <p>作成日: {new Date(post.created_at).toLocaleDateString()}</p>
-              </Link>
-            </li>
-          ))}
-        </ul>
-      )}
+      <div className="ml-80 my-20">
+        <Title text="記事一覧" />
+      </div>
+      <div className="flex flex-col items-center">
+        {posts.length === 0 ? (
+          <h2>記事がありません。</h2>
+        ) : (
+          <ul className="grid grid-cols-1 md:grid-cols-2 gap-x-14 gap-y-5">
+            {posts.map((post) => (
+              <li key={post.id}>
+                <Link href={`/admin/posts/${post.id}`}>
+                  <Card
+                    title={post.title}
+                    date={new Date(post.created_at).toLocaleDateString()}
+                  />
+                </Link>
+              </li>
+            ))}
+          </ul>
+        )}
+      </div>
     </div>
   );
 }
