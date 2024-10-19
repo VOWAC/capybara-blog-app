@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { redirect } from 'next/navigation';
 import { createClient } from '@/utils/supabase/server';
+import Header from "../components/Header";
 
 export const metadata: Metadata = {
   title: "カピバラブログ|管理画面",
@@ -22,6 +23,7 @@ export default async function RootLayout({
   return (
     <html lang="ja">
       <body>
+        <Header />
         {children}
       </body>
     </html>

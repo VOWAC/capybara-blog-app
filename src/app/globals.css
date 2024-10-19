@@ -9,7 +9,7 @@
   --font-size-xl: 24px;
   --font-size-lg: 20px;
   --font-size-md: 16px;
-  --font-size-sm: 12px;
+  --font-size-sm: 13px;
   /* カラー */
   --primary: #E3AAB2;
   --secondary: #FBDFD8;
@@ -46,7 +46,7 @@ p {
 }
 
 .small-text {
-  font-size: var(--font-size-sm); /* 12px */
+  font-size: var(--font-size-sm); /* 13px */
 }
 
 .shadow{
