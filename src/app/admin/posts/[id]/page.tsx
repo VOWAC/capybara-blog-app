@@ -1,6 +1,7 @@
 import { notFound } from "next/navigation";
 import { createClient } from "@/utils/supabase/server";
 import ActionButton from "@/app/components/ActionButton";
+import PaginationButton from "@/app/components/PaginationButton";
 
 export default async function AdminPostDetail({
   params,
@@ -44,6 +45,12 @@ export default async function AdminPostDetail({
           <h1 className="font-bold text-center mt-10 mb-6">{post.title}</h1>
           <div className="w-full border-t-2 border-accent opacity-50"></div>
           <p className="mt-9">{post.content}</p>
+        </div>
+      </div>
+      <div className="w-3/5 mx-auto">
+        <div className="flex justify-between">
+          <PaginationButton type="next" />
+          <PaginationButton type="prev" />
         </div>
       </div>
     </div>
