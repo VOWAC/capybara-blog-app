@@ -1,7 +1,6 @@
 import { notFound } from "next/navigation";
 import { createClient } from "@/utils/supabase/server";
-import Image from "next/image";
-import Link from "next/link";
+import ActionButton from "@/app/components/ActionButton";
 
 export default async function AdminPostDetail({
   params,
@@ -27,23 +26,16 @@ export default async function AdminPostDetail({
   }
 
   return (
-    <div className="">
+    <div>
+      <div className="absolute left-12 top-32">
+        <ActionButton type="back" />
+      </div>
       <div className="bg-white mx-96 px-12 py-2.5 rounded-sm my-24">
         <div className="flex justify-between items-center">
           <p className="small-text bg-primary w-20 flex justify-center items-center rounded-xl text-white py-1 mt-4">
             {post.is_published ? "公開中" : "非公開"}
           </p>
-          <button>
-            <Link href="./">
-              <Image
-                src={"/icons/edit.svg"}
-                alt="編集"
-                width={30}
-                height={30}
-                className=""
-              />
-            </Link>
-          </button>
+          <ActionButton type="edit" />
         </div>
         <div className="mt-2.5 mb-9">
           <p className="small-text opacity-50">
