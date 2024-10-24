@@ -72,24 +72,25 @@ const CreatePage = () => {
           onInput={autoResize} // 高さを動的に変更
         />
         <div className="flex flex-col items-end">
-          <label className="flex items-center cursor-pointer mr-4 my-2">
-            <div onClick={handleCheckboxChange}>
-              {isChecked ? (
-                <Image
-                  src="/icons/checkbox-active.svg"
-                  alt="チェックボックス＿未選択"
-                  height={20}
-                  width={20}
-                />
-              ) : (
-                <Image
-                  src="/icons/checkbox.svg"
-                  alt="チェックボックス"
-                  height={20}
-                  width={20}
-                />
-              )}
-            </div>
+          <label
+            className="flex items-center cursor-pointer mr-4 my-2"
+            onClick={handleCheckboxChange}
+          >
+            {isChecked ? (
+              <Image
+                src="/icons/checkbox-active.svg"
+                alt="チェックボックス＿選択済み"
+                height={20}
+                width={20}
+              />
+            ) : (
+              <Image
+                src="/icons/checkbox.svg"
+                alt="チェックボックス"
+                height={20}
+                width={20}
+              />
+            )}
             <span className="ml-1">公開</span>
           </label>
 
