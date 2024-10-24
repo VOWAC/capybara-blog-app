@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import Image from "next/image";
 import React from "react";
@@ -6,14 +6,15 @@ import Link from "next/link";
 
 type Props = {
   type: "edit" | "back";
+  postId?: string;
 };
 
-const ActionButton = ({ type }: Props) => {
+const ActionButton = ({ type, postId }: Props) => {
   const config = {
     edit: {
       src: "/icons/edit.svg",
       alt: "編集",
-      path: "/edit",
+      path: `/admin/posts/${postId}/edit`,
       width: 30,
       height: 30,
     },
@@ -42,12 +43,14 @@ const ActionButton = ({ type }: Props) => {
           />
         </Link>
       ) : (
-        <Image
-          src={config[type].src}
-          alt={config[type].alt}
-          width={config[type].width}
-          height={config[type].height}
-        />
+        <Link href={config[type].path}>
+          <Image
+            src={config[type].src}
+            alt={config[type].alt}
+            width={config[type].width}
+            height={config[type].height}
+          />
+        </Link>
       )}
     </button>
   );

@@ -36,7 +36,7 @@ export default async function AdminPostDetail({
           <p className="small-text bg-primary w-20 flex justify-center items-center rounded-xl text-white py-1 mt-4">
             {post.is_published ? "公開中" : "非公開"}
           </p>
-          <ActionButton type="edit" />
+          <ActionButton type="edit" postId={params.id}/>
         </div>
         <div className="mt-2.5 mb-9">
           <p className="small-text opacity-50">
