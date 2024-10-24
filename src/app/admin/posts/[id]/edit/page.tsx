@@ -70,13 +70,14 @@ const EditPage = ({ params }: { params: { id: string } }) => {
       </div>
       <form onSubmit={handleSubmit}>
         {/* タイトルの編集 */}
-        <input
+        <textarea
           id="title"
-          type="text"
           value={title}
           onChange={(e) => setTitle(e.target.value)}
+          placeholder="タイトル"
           required
-          className="bg-transparent font-bold text-2xl focus:outline-none"
+          className="bg-transparent font-bold text-2xl focus:outline-none w-full resize-none overflow-hidden h-16"
+          rows={2}
         />
 
         <textarea
