@@ -3,7 +3,7 @@ import React, { useEffect, useRef, useState } from "react";
 import { createPost } from "./action";
 import Button from "@/app/components/Button";
 import Image from "next/image";
-import DeleteButton from "@/app/components/DeleteButton";
+import ActionButton from "@/app/components/ActionButton";
 
 const CreatePage = () => {
   const [title, setTitle] = useState("");
@@ -46,6 +46,9 @@ const CreatePage = () => {
 
   return (
     <div className="mx-96 mt-24">
+      <div className="absolute left-12 top-32">
+        <ActionButton type="back" />
+      </div>
       {/* 記事の作成 */}
       <form onSubmit={handleSubmit} className="flex flex-col gap-4">
         {/* タイトルの作成 */}
@@ -101,7 +104,6 @@ const CreatePage = () => {
 
           {/* 送信ボタン */}
           <div className="flex gap-4">
-            <DeleteButton />
             <Button>{isPublished ? "投稿する" : "下書きを保存"}</Button>
           </div>
         </div>
