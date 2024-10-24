@@ -40,9 +40,8 @@ const CreatePage = () => {
     }
   };
 
-  const [isChecked, setIsChecked] = useState(false);
   const handleCheckboxChange = () => {
-    setIsChecked((prev) => !prev);
+    setIsPublished((prev) => !prev);
   };
 
   return (
@@ -76,7 +75,13 @@ const CreatePage = () => {
             className="flex items-center cursor-pointer mr-4 my-4"
             onClick={handleCheckboxChange}
           >
-            {isChecked ? (
+            <input
+              type="checkbox"
+              checked={isPublished}
+              onChange={handleCheckboxChange}
+              className="hidden" // チェックボックスを視覚的に隠す
+            />
+            {isPublished ? (
               <Image
                 src="/icons/checkbox-active.svg"
                 alt="チェックボックス＿選択済み"
@@ -97,12 +102,7 @@ const CreatePage = () => {
           {/* 送信ボタン */}
           <div className="flex gap-4">
             <DeleteButton />
-            <Button>
-              {
-                isChecked ? "投稿する" : "下書きを保存"
-              }
-              
-              </Button>
+            <Button>{isPublished ? "投稿する" : "下書きを保存"}</Button>
           </div>
         </div>
       </form>
