@@ -73,7 +73,7 @@ const CreatePage = () => {
         />
         <div className="flex flex-col items-end">
           <label
-            className="flex items-center cursor-pointer mr-4 my-2"
+            className="flex items-center cursor-pointer mr-4 my-4"
             onClick={handleCheckboxChange}
           >
             {isChecked ? (
@@ -97,7 +97,12 @@ const CreatePage = () => {
           {/* 送信ボタン */}
           <div className="flex gap-4">
             <DeleteButton />
-            <Button>下書きを保存</Button>
+            <Button>
+              {
+                isChecked ? "投稿する" : "下書きを保存"
+              }
+              
+              </Button>
           </div>
         </div>
       </form>
