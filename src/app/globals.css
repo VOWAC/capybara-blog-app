@@ -53,6 +53,18 @@ p {
   box-shadow: var(--drop-shadow);
 }
 
+ruby {
+  font-size: var(--font-size-lg);
+  color: var(--foreground);
+  letter-spacing: 0.1em;
+}
+
+rt {
+  font-size: 0.75rem;
+  color: var(--accent);
+  letter-spacing: 0.1em;
+}
+
 @layer utilities {
   .text-balance {
     text-wrap: balance;
