@@ -37,13 +37,13 @@ export async function updateSession(request: NextRequest) {
 
   if (
     !user &&
-    !request.nextUrl.pathname.startsWith('/login') &&
-    !request.nextUrl.pathname.startsWith('/auth')
+    !request.nextUrl.pathname.startsWith('/login-ba0c2a96-7fc5-0ff9-ec9c-105a188f3440') &&
+    !request.nextUrl.pathname.startsWith('/auth') &&
+    request.nextUrl.pathname.startsWith('/admin') // /admin以下のパスにのみ適用
   ) {
-    // no user, potentially respond by redirecting the user to the login page
-    const url = request.nextUrl.clone()
-    url.pathname = '/login'
-    return NextResponse.redirect(url)
+    const url = request.nextUrl.clone();
+    url.pathname = '/404';
+    return NextResponse.redirect(url);
   }
 
   // IMPORTANT: You *must* return the supabaseResponse object as it is. If you're
