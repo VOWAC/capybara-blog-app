@@ -64,7 +64,7 @@ const AboutPage = () => {
           </div>
           <div className="bg-white w-[700px] relative left-24 bottom-48">
             <div className="flex relative left-72 gap-4 p-10">
-              <Link href="https://youtube.com/">
+              <Link href={`${youtubeUrl}`}>
                 <Image
                   src={"/about/youtube.png"}
                   alt="youtube"

@@ -17,7 +17,7 @@ const Header = () => {
         </div>
 
         <div className="text-white flex gap-5 md:gap-10">
-          <Link href="./">記事一覧</Link>
+          <Link href="/">記事一覧</Link>
           <Link href="/about">アバウト</Link>
         </div>
       </div>
