@@ -4,6 +4,7 @@ import Title from "@/app/components/Title";
 import Image from "next/image";
 import Link from "next/link";
 import { getProfile } from "@/utils/aboutActions";
+import Header from "@/app/components/Header";
 
 const avatarUrl =
   `${process.env.NEXT_PUBLIC_SUPABASE_STORAGE_URL_AVATAR}` || "";
@@ -37,6 +38,7 @@ const AboutPage = () => {
   }, []);
   return (
     <div>
+      <Header />
       <div className="">
         <div className="ml-80 my-20">
           <Title text="アバウト" />
@@ -74,9 +76,7 @@ const AboutPage = () => {
                 <Image src={"/about/x.png"} alt="x" width={72} height={72} />
               </Link>
             </div>
-            <p className="px-24 pb-24">
-              {bio}
-            </p>
+            <p className="px-24 pb-24">{bio}</p>
           </div>
           <Image
             src={midorinUrl}
