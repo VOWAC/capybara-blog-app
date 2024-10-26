@@ -1,7 +1,7 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import Header from "../components/Header";
-import Title from "../components/Title";
+import Header from "@/app/components/Header";
+import Title from "@/app/components/Title";
 import Image from "next/image";
 import Link from "next/link";
 import { getProfile } from "@/utils/aboutActions";
