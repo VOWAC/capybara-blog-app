@@ -42,7 +42,7 @@ export async function updateSession(request: NextRequest) {
     request.nextUrl.pathname.startsWith('/admin') // /admin以下のパスにのみ適用
   ) {
     const url = request.nextUrl.clone();
-    url.pathname = '/login-ba0c2a96-7fc5-0ff9-ec9c-105a188f3440';
+    url.pathname = '/404';
     return NextResponse.redirect(url);
   }
 
