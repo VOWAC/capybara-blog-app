@@ -2,7 +2,6 @@ import Card from "@/app/components/Card";
 import Title from "@/app/components/Title";
 import { createClient } from "@/utils/supabase/server";
 import Link from "next/link";
-import Header from "@/app/components/Header";
 
 export default async function Home() {
   const supabase = createClient();
@@ -18,7 +17,6 @@ export default async function Home() {
 
   return (
     <div>
-      <Header />
       <div className="ml-80 my-20">
         <Title text="記事一覧" />
       </div>

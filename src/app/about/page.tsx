@@ -1,6 +1,5 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import Header from "@/app/components/Header";
 import Title from "@/app/components/Title";
 import Image from "next/image";
 import Link from "next/link";
@@ -38,7 +37,6 @@ const AboutPage = () => {
   }, []);
   return (
     <div>
-      <Header />
       <div className="">
         <div className="ml-80 my-20">
           <Title text="アバウト" />
