@@ -5,6 +5,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { getProfile } from "@/utils/aboutActions";
 import Header from "@/app/components/Header";
+import { createClient } from "@/utils/supabase/supabase";
+import ActionButton from "@/app/components/ActionButton";
 
 const avatarUrl =
   `${process.env.NEXT_PUBLIC_SUPABASE_STORAGE_URL_AVATAR}` || "";
@@ -18,6 +20,7 @@ const AboutPage = () => {
   const [message, setMessage] = useState("");
   const [name, setName] = useState("");
   const [ruby, setRuby] = useState("");
+  const [isAdmin, setIsAdmin] = useState(false);
 
   // ページ読み込み時にプロフィールデータを取得してフォームにセットする
   useEffect(() => {
@@ -32,6 +35,18 @@ const AboutPage = () => {
       setYoutubeUrl(data.youtube_url);
       setName(data.name);
       setRuby(data.ruby);
+
+      const supabase = createClient();
+
+      // ユーザーの情報を取得
+      const {
+        data: { user },
+      } = await supabase.auth.getUser();
+
+      // ログインしている場合、isAdminをtrueに設定
+      if (user) {
+        setIsAdmin(true); // ログインしている場合はtrueに設定
+      }
     };
 
     fetchProfile();
@@ -59,6 +74,11 @@ const AboutPage = () => {
                   {name}
                   <rt>{ruby}</rt>
                 </ruby>
+                {isAdmin && (
+              <Link href="/admin/setting" className="flex justify-end mr-8 p-2">
+                <ActionButton type="setting" />
+              </Link>
+            )}
               </div>
             </div>
           </div>
