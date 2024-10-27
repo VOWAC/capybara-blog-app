@@ -2,6 +2,8 @@
 import { createClient } from "@/utils/supabase/supabase";
 import { useEffect, useState } from "react";
 import ActionButton from "@/app/components/ActionButton";
+import PaginationButton from "@/app/components/PaginationButton";
+import Header from "@/app/components/Header";
 
 export default function AdminPostDetail({
   params,
@@ -51,6 +53,7 @@ export default function AdminPostDetail({
 
   return (
     <div>
+      <Header />
       <div className="absolute left-12 top-32">
         <ActionButton type="back" />
       </div>
@@ -70,6 +73,12 @@ export default function AdminPostDetail({
           <h1 className="font-bold text-center mt-10 mb-6">{post.title}</h1>
           <div className="w-full border-t-2 border-accent opacity-50"></div>
           <p className="mt-9">{post.content}</p>
+        </div>
+      </div>
+      <div className="w-3/5 mx-auto">
+        <div className="flex justify-between">
+          <PaginationButton type="next" />
+          <PaginationButton type="prev" />
         </div>
       </div>
     </div>
