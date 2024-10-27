@@ -1,19 +1,65 @@
+"use client";
+
 import Card from "@/app/components/Card";
 import Title from "@/app/components/Title";
-import { createClient } from "@/utils/supabase/server";
+import { createClient } from "@/utils/supabase/supabase";
 import Link from "next/link";
 import Header from "@/app/components/Header";
+import { useEffect, useState } from "react";
 
-export default async function Home() {
+export default function Home() {
   const supabase = createClient();
+  const [isAdmin, setIsAdmin] = useState(false);
+  const [posts, setPosts] = useState<any[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
 
-  const { data: posts, error: postsError } = await supabase
-    .from("posts")
-    .select("*")
-    .order("created_at", { ascending: false });
+  useEffect(() => {
+    const fetchUserStatusAndPosts = async () => {
+      try {
+        // ユーザーの情報を取得
+        const {
+          data: { user },
+        } = await supabase.auth.getUser();
 
-  if (postsError || !posts) {
-    return <p>記事が見つかりません。</p>;
+        // ログインしている場合、isAdminをtrueに設定
+        if (user) {
+          setIsAdmin(true);
+        }
+
+        // 記事の情報を取得
+        const { data: postsData, error: postsError } = isAdmin
+          ? await supabase
+              .from("posts")
+              .select("*")
+              .order("created_at", { ascending: false })
+          : await supabase
+              .from("posts")
+              .select("*")
+              .eq("is_published", true) // 公開された記事のみ取得
+              .order("created_at", { ascending: false });
+
+        if (postsError) {
+          setError("記事の取得に失敗しました。");
+        } else {
+          setPosts(postsData || []);
+        }
+      } catch (error) {
+        setError("データの取得中にエラーが発生しました。");
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchUserStatusAndPosts();
+  }, [isAdmin]);
+
+  if (loading) {
+    return <div>Loading...</div>;
+  }
+
+  if (error) {
+    return <p>{error}</p>;
   }
 
   return (
