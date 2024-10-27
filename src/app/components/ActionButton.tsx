@@ -5,7 +5,7 @@ import React from "react";
 import Link from "next/link";
 
 type Props = {
-  type: "edit" | "back";
+  type: "edit" | "back" | "setting";
   postId?: string;
 };
 
@@ -25,6 +25,13 @@ const ActionButton = ({ type, postId }: Props) => {
       width: 60,
       height: 60,
     },
+    setting: {
+      src: "/icons/edit.svg",
+      alt: "アバウト編集",
+      path: `/admin/setting`,
+      width: 30,
+      height: 30,
+    },
   };
 
   const goBack = () => {
@@ -40,6 +47,7 @@ const ActionButton = ({ type, postId }: Props) => {
             alt={config[type].alt}
             width={config[type].width}
             height={config[type].height}
+            className="opacity-50"
           />
         </Link>
       ) : (
@@ -49,6 +57,7 @@ const ActionButton = ({ type, postId }: Props) => {
             alt={config[type].alt}
             width={config[type].width}
             height={config[type].height}
+            className="opacity-50"
           />
         </Link>
       )}
