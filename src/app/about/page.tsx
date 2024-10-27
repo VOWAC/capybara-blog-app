@@ -68,7 +68,7 @@ const AboutPage = () => {
               />
 
               <div className="bg-white w-full h-8 md:w-[450px] md:h-16 flex justify-center items-center">
-                <ruby className="ml-10 md:ml-0">
+                <ruby>
                   {name}
                   <rt>{ruby}</rt>
                 </ruby>
