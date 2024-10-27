@@ -15,7 +15,7 @@ export default function LoginPage() {
             name="email"
             type="email"
             required
-            className="w-full h-12 rounded border border-accents p-3 flex"
+            className="w-full h-12 rounded border border-accent p-3 flex"
           />
         </div>
         <div className="w-2/3 ">
