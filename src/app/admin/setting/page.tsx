@@ -57,10 +57,10 @@ const ProfileEditPage = () => {
   };
 
   return (
-    <div className="mx-96 mt-24">
-      <div className="absolute left-12 top-32">
-        <ActionButton type="back" />
-      </div>
+    <div className="container mt-24 md:mt-48">
+        <div className="absolute left-12 top-32 hidden md:block">
+          <ActionButton type="back" />
+        </div>
       <form onSubmit={handleSubmit}>
         <h2>プロフィール編集</h2>
         {/* プロフィールの紹介文編集 */}
@@ -96,7 +96,7 @@ const ProfileEditPage = () => {
         />
   
         {/* 送信ボタン */}
-        <div className="flex gap-4 mt-4 justify-end">
+        <div className="flex gap-4 mt-4 justify-center md:justify-end">
           <Button>更新する</Button>
         </div>
       </form>

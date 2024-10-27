@@ -2,15 +2,16 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 
-const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
+const mamelon = localFont({
+  src: "./fonts/mamelon_hireg/Mamelon-3-Hi-Regular.otf",
+  variable: "--font-mamelon",
   weight: "100 900",
 });
-const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
-  weight: "100 900",
+
+const mamelon_bold = localFont({
+  src: "./fonts/mamelon_hireg/Mamelon-5-Hi-Regular.otf",
+  variable: "--font-mamelon-bold",
+  weight: "1200",
 });
 
 export const metadata: Metadata = {
@@ -29,7 +30,7 @@ export default function RootLayout({
   return (
     <html lang="ja">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${mamelon.variable} ${mamelon_bold.variable} antialiased`}
       >
         {children}
       </body>
