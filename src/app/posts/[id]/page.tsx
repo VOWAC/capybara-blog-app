@@ -51,6 +51,11 @@ export default function AdminPostDetail({
     return <div>Loading...</div>;
   }
 
+  // 記事が見つからない場合のエラーハンドリング
+  if (!post) {
+    return <div>記事が見つかりません。</div>;
+  }
+
   return (
     <div>
       <Header />
