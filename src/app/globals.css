@@ -62,12 +62,20 @@ p {
 
 ruby {
   font-size: var(--font-size-lg);
+  /* レスポンシブ */
+  @media (max-width: 768px) {
+    font-size: var(--font-size-md);
+  }
   color: var(--foreground);
   letter-spacing: 0.1em;
 }
 
 rt {
   font-size: 0.75rem;
+  /* レスポンシブ */
+  @media (max-width: 768px) {
+    font-size: 0.5rem;
+  }
   color: var(--accent);
   letter-spacing: 0.1em;
 }

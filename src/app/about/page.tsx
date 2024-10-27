@@ -54,56 +54,64 @@ const AboutPage = () => {
   return (
     <div>
       <Header />
-      <div className="">
-        <div className="ml-80 my-20">
-          <Title text="アバウト" />
-        </div>
-        <div className="w-[764px] mx-auto mt-24">
-          <div className="flex flex-col items-start  justify-center">
-            <div className="flex">
+      <div className="container">
+        <Title text="アバウト" />
+        <div className="md:w-[764px] md:mx-auto md:mt-24">
+          <div className="flex flex-col items-center md:items-start md:justify-center">
+            <div className="md:flex">
               <Image
                 src={avatarUrl}
                 alt="avatar"
                 width={284}
                 height={284}
-                className="relative left-8 bottom-16 z-10"
+                className="md:relative md:left-8 w-40 h-40 md:bottom-16 md:z-10 md:w-[284px] md:h-[284px] mb-8 md:mb-0"
               />
 
-              <div className="bg-white w-[450px] h-16 flex justify-center items-center">
-                <ruby>
+              <div className="bg-white w-full h-8 md:w-[450px] md:h-16 flex justify-center items-center">
+                <ruby className="ml-10 md:ml-0">
                   {name}
                   <rt>{ruby}</rt>
                 </ruby>
                 {isAdmin && (
-              <Link href="/admin/setting" className="flex justify-end mr-8 p-2">
-                <ActionButton type="setting" />
-              </Link>
-            )}
+                  <Link
+                    href="/admin/setting"
+                    className="flex justify-end md:mr-8 p-2"
+                  >
+                    <ActionButton type="setting" />
+                  </Link>
+                )}
               </div>
             </div>
           </div>
-          <div className="bg-white w-[700px] relative left-24 bottom-48">
-            <div className="flex relative left-72 gap-4 p-10">
+          <div className="bg-white mt-2 md:w-[700px] md:relative md:left-24 md:bottom-48 md:mt-0">
+            <div className="flex justify-center md:justify-start md:relative md:left-72 gap-4 p-4 md:p-10">
               <Link href={`${youtubeUrl}`}>
                 <Image
                   src={"/about/youtube.png"}
                   alt="youtube"
                   width={72}
                   height={72}
+                  className="w-12 h-12 md:w-16 md:h-16"
                 />
               </Link>
               <Link href={`${xUrl}`}>
-                <Image src={"/about/x.png"} alt="x" width={72} height={72} />
+                <Image
+                  src={"/about/x.png"}
+                  alt="x"
+                  width={72}
+                  height={72}
+                  className="w-12 h-12 md:w-16 md:h-16"
+                />
               </Link>
             </div>
-            <p className="px-24 pb-24">{bio}</p>
+            <p className="px-8 pb-10 md:px-24 md:pb-24">{bio}</p>
           </div>
           <Image
             src={midorinUrl}
             alt="midorin"
             width={500}
             height={500}
-            className="relative bottom-[450px] left-[450px]"
+            className="-mt-16 md:-mt-0 md:relative md:bottom-[450px] md:left-[450px]"
           />
         </div>
       </div>
