@@ -6,6 +6,7 @@ import { createClient } from "@/utils/supabase/supabase";
 import Link from "next/link";
 import Header from "@/app/components/Header";
 import { useEffect, useState } from "react";
+import ActionButton from "@/app/components/ActionButton";
 
 export default function Home() {
   const supabase = createClient();
@@ -87,6 +88,11 @@ export default function Home() {
           </ul>
         )}
       </div>
+      {isAdmin && (
+        <div className="absolute bottom-20 right-20">
+          <ActionButton type="create" />
+        </div>
+      )}
     </div>
   );
 }
