@@ -33,6 +33,7 @@ export default async function Home() {
                   <Card
                     title={post.title}
                     date={new Date(post.created_at).toLocaleDateString()}
+                    isPublished={post.is_published}
                   />
                 </Link>
               </li>
