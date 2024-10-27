@@ -3,9 +3,10 @@
 import Image from "next/image";
 import React from "react";
 import Link from "next/link";
+import path from "path";
 
 type Props = {
-  type: "edit" | "back" | "setting";
+  type: "edit" | "back" | "setting" | "create";
   postId?: string;
 };
 
@@ -32,6 +33,13 @@ const ActionButton = ({ type, postId }: Props) => {
       width: 30,
       height: 30,
     },
+    create: {
+      src: "/icons/plus.png",
+      alt: "新規作成",
+      path: `/admin/posts/create`,
+      width: 80,
+      height: 80,
+    },
   };
 
   const goBack = () => {
@@ -48,6 +56,16 @@ const ActionButton = ({ type, postId }: Props) => {
             width={config[type].width}
             height={config[type].height}
             className="opacity-50"
+          />
+        </Link>
+      ) : type === "create" ? (
+        <Link href={config[type].path}>
+          <Image
+            src={config[type].src}
+            alt={config[type].alt}
+            width={config[type].width}
+            height={config[type].height}
+            className="opacity-100" 
           />
         </Link>
       ) : (
