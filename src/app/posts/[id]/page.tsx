@@ -2,7 +2,6 @@
 import { createClient } from "@/utils/supabase/supabase";
 import { useEffect, useState } from "react";
 import ActionButton from "@/app/components/ActionButton";
-import Header from "@/app/components/Header";
 
 export default function AdminPostDetail({
   params,
