@@ -104,7 +104,9 @@ const AboutPage = () => {
                 />
               </Link>
             </div>
-            <p className="px-8 pb-10 md:px-24 md:pb-24 whitespace-pre-line">{bio}</p>
+            <p className="px-8 pb-10 md:px-24 md:pb-24 whitespace-pre-line">
+              {bio}
+            </p>
           </div>
           <Image
             src={midorinUrl}
@@ -115,6 +117,7 @@ const AboutPage = () => {
           />
         </div>
       </div>
+      {message && <p className="text-red-500">{message}</p>}
     </div>
   );
 };

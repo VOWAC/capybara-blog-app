@@ -1,6 +1,15 @@
 'use server'
 import { createClient } from '@/utils/supabase/server';
 
+type Profile = {
+  id: number;
+  bio: string;
+  x_url: string;
+  youtube_url: string;
+  name: string;
+  ruby: string;
+};
+
 export async function updateProfile({
   bio,
   x_url,
@@ -26,7 +35,7 @@ export async function updateProfile({
 }
 
 // プロフィールを取得する関数
-export async function getProfile(): Promise<{ data: any; error?: string }> {
+export async function getProfile():Promise<{ data: Profile | null; error?: string }> {
   const supabase = createClient();
 
   // プロフィールデータを取得

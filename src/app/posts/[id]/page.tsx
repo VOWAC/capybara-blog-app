@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import ActionButton from "@/app/components/ActionButton";
 import PaginationButton from "@/app/components/PaginationButton";
 import Header from "@/app/components/Header";
+import { Post } from "@/types/post";
 
 export default function AdminPostDetail({
   params,
@@ -11,7 +12,7 @@ export default function AdminPostDetail({
   params: { id: string };
 }) {
   const [isAdmin, setIsAdmin] = useState(false);
-  const [post, setPost] = useState<any>(null);
+  const [post, setPost] = useState<Post | null>(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {

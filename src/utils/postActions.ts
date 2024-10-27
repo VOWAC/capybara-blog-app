@@ -1,8 +1,10 @@
 'use server';
+import { Post } from '@/types/post';
 import { createClient } from '@/utils/supabase/server';
 
+
 // 記事をIDで取得する関数
-export async function getPostById(postId: string): Promise<{ data: any; error: string | null }> {
+export async function getPostById(postId: string): Promise<{ data: Post | null; error: string | null }> {
   const supabase = createClient();
 
   const { data, error } = await supabase
