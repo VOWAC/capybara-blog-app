@@ -53,6 +53,13 @@ p {
   box-shadow: var(--drop-shadow);
 }
 
+.container{
+  width: 60%;
+  margin-left: auto;
+  margin-right: auto;
+  min-width: 340px;
+}
+
 ruby {
   font-size: var(--font-size-lg);
   color: var(--foreground);

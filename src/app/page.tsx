@@ -64,35 +64,35 @@ export default function Home() {
   }
 
   return (
-    <div>
+    <div className="container">
       <Header />
-      <div className="ml-80 my-20">
+      <div>
         <Title text="記事一覧" />
-      </div>
-      <div className="flex flex-col items-center">
-        {posts.length === 0 ? (
-          <h2>記事がありません。</h2>
-        ) : (
-          <ul className="grid grid-cols-1 md:grid-cols-2 gap-x-14 gap-y-5">
-            {posts.map((post) => (
-              <li key={post.id}>
-                <Link href={`/posts/${post.id}`}>
-                  <Card
-                    title={post.title}
-                    date={new Date(post.created_at).toLocaleDateString()}
-                    isPublished={post.is_published}
-                  />
-                </Link>
-              </li>
-            ))}
-          </ul>
+        <div className="flex flex-col items-center">
+          {posts.length === 0 ? (
+            <h2>記事がありません。</h2>
+          ) : (
+            <ul className="grid grid-cols-1 xl:grid-cols-2 gap-x-14 gap-y-5">
+              {posts.map((post) => (
+                <li key={post.id}>
+                  <Link href={`/posts/${post.id}`}>
+                    <Card
+                      title={post.title}
+                      date={new Date(post.created_at).toLocaleDateString()}
+                      isPublished={post.is_published}
+                    />
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          )}
+        </div>
+        {isAdmin && (
+          <div className="absolute bottom-10 right-4  sm:bottom-8 sm:right-16 md:bottom-16 md:right-20 xl:bottom-20 xl:right-20 ">
+            <ActionButton type="create" />
+          </div>
         )}
       </div>
-      {isAdmin && (
-        <div className="absolute bottom-20 right-20">
-          <ActionButton type="create" />
-        </div>
-      )}
     </div>
   );
 }

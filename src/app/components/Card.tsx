@@ -32,7 +32,7 @@ const Card = ({ title, date, isPublished }: Props) => {
   }, []);
 
   return (
-    <div className="w-96 bg-white rounded-xl border border-accent shadow">
+    <div className="w-full bg-white rounded-xl border border-accent shadow">
       <div className=" pt-2 pb-7">
         <div className="flex justify-between">
           <p className="small-text opacity-50 pl-4">{date}</p>

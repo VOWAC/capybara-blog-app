@@ -37,8 +37,8 @@ const ActionButton = ({ type, postId }: Props) => {
       src: "/icons/plus.png",
       alt: "新規作成",
       path: `/admin/posts/create`,
-      width: 80,
-      height: 80,
+      width: 48,
+      height: 48,
     },
   };
 
@@ -65,7 +65,7 @@ const ActionButton = ({ type, postId }: Props) => {
             alt={config[type].alt}
             width={config[type].width}
             height={config[type].height}
-            className="opacity-100" 
+            className="opacity-80 md:opacity-100 md:w-16 md:h-16" 
           />
         </Link>
       ) : (
