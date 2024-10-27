@@ -78,7 +78,7 @@ export default function AdminPostDetail({
             </p>
             <h1 className="font-bold text-center mt-2 md:mt-10 mb-2 md:mb-6">{post.title}</h1>
             <div className="w-full border-t-2 border-accent opacity-50"></div>
-            <p className="mt-9">{post.content}</p>
+            <p className="mt-9 whitespace-pre-line px-8">{post.content}</p>
           </div>
         </div>
         <div className="w-full mx-auto mt-8 md:mt-12">
