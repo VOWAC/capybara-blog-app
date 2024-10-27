@@ -45,8 +45,8 @@ const CreatePage = () => {
   };
 
   return (
-    <div className="mx-96 mt-24">
-      <div className="absolute left-12 top-32">
+    <div className="container my-24 md:my-48">
+       <div className="absolute left-12 top-32 hidden md:block">
         <ActionButton type="back" />
       </div>
       {/* 記事の作成 */}
@@ -69,11 +69,11 @@ const CreatePage = () => {
           value={content}
           onChange={(e) => setContent(e.target.value)}
           placeholder="ここに本文を書いてください"
-          className="w-full border-2 border-gray-300 rounded-2xl p-2 mt-4 focus:outline-none border-none p-8 resize-none overflow-hidden"
+          className="w-full border-2 border-gray-300 rounded-2xl p-2 focus:outline-none border-none p-8 resize-none overflow-hidden min-w-[340px] md:mt-4"
           required
           onInput={autoResize} // 高さを動的に変更
         />
-        <div className="flex flex-col items-end">
+         <div className="flex flex-col items-center md:items-end mt-2 md:mt-0">
           <label
             className="flex items-center cursor-pointer mr-4 my-4"
             onClick={handleCheckboxChange}
@@ -103,7 +103,7 @@ const CreatePage = () => {
           </label>
 
           {/* 送信ボタン */}
-          <div className="flex gap-4">
+          <div className="flex flex-col gap-4 md:flex-row">
             <Button>{isPublished ? "投稿する" : "下書きを保存"}</Button>
           </div>
         </div>
