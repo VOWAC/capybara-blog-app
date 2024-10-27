@@ -77,8 +77,16 @@ export default function AdminPostDetail({
       </div>
       <div className="w-3/5 mx-auto">
         <div className="flex justify-between">
-          <PaginationButton type="next" />
-          <PaginationButton type="prev" />
+          <PaginationButton
+            type="prev"
+            currentId={params.id}
+            isAdmin={isAdmin}
+          />
+          <PaginationButton
+            type="next"
+            currentId={params.id}
+            isAdmin={isAdmin}
+          />
         </div>
       </div>
     </div>
