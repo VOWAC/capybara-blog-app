@@ -47,6 +47,7 @@ const ActionButton = ({ type, postId }: Props) => {
             alt={config[type].alt}
             width={config[type].width}
             height={config[type].height}
+            className="opacity-50"
           />
         </Link>
       ) : (
