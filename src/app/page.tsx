@@ -29,7 +29,7 @@ export default async function Home() {
           <ul className="grid grid-cols-1 md:grid-cols-2 gap-x-14 gap-y-5">
             {posts.map((post) => (
               <li key={post.id}>
-                <Link href={`/admin/posts/${post.id}`}>
+                <Link href={`/posts/${post.id}`}>
                   <Card
                     title={post.title}
                     date={new Date(post.created_at).toLocaleDateString()}
